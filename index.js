@@ -9,15 +9,14 @@ function postComment() {
 }
 
 function createPost() {
-  var author = document.getElementById('postAuthor').value;
-  var postBody = document.getElementById('postBody').value;
-  var postTitle = document.getElementById('postTitle').value;
-  var postTemplate = document.getElementById('post-template').innerHTML;
-  var postTemplateFn = _.template(postTemplate);
-  //creating the actual page template itself so that there is something for the post to be appended to?
   var pageTemplate = document.getElementById("page-template").innerHTML;
   var mainPage = document.getElementsByTagName('main');
   mainPage += pageTemplate;
+  var postTitle = document.getElementById('postTitle').value;
+  var author = document.getElementById('postAuthor').value;
+  var postBody = document.getElementById('postBody').value;
+  var postTemplate = document.getElementById('post-template').innerHTML;
+  var postTemplateFn = _.template(postTemplate);
   var postSection = document.getElementById('post');
   var postHTML = postTemplateFn({ 'title': postTitle, 'postBodyTemp': postBody, 'authorTemp': author })
   postSection += postHTML;
