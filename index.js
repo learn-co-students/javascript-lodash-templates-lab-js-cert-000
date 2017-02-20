@@ -10,6 +10,7 @@ function postComment() {
 
 function createPost() {
   var pageTemplate = document.getElementById("page-template").innerHTML;
+  console.log("hello there");
   var mainPage = document.getElementsByTagName('main');
   mainPage += pageTemplate;
   var postTitle = document.getElementById('postTitle').value;
