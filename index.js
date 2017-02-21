@@ -1,18 +1,7 @@
-function postComment() {
-  var commenter = document.getElementById('commenterName').value;
-  var comment = document.getElementById('commenterText').value;
-  var commentTemplate = document.getElementById('comment-template').innerHTML;
-  var commentTemplateFn = _.template(commentTemplate);
-  var comments = document.getElementById('comments');
-  var commentHTML = commentTemplateFn({ 'comment': comment, 'commenter': commenter });
-  comments += commentHTML;
-}
-
 function createPost() {
   var pageTemplate = document.getElementById("page-template").innerHTML;
-  console.log("hello there");
   var mainPage = document.getElementsByTagName('main');
-  mainPage += pageTemplate;
+  mainPage.appendChild(pageTemplate); // mainPage += pageTemplate; (first way I tried it)
   var postTitle = document.getElementById('postTitle').value;
   var author = document.getElementById('postAuthor').value;
   var postBody = document.getElementById('postBody').value;
@@ -21,4 +10,14 @@ function createPost() {
   var postSection = document.getElementById('post');
   var postHTML = postTemplateFn({ 'title': postTitle, 'postBodyTemp': postBody, 'authorTemp': author })
   postSection += postHTML;
+}
+
+function postComment() {
+  var commenter = document.getElementById('commenterName').value;
+  var comment = document.getElementById('commenterText').value;
+  var commentTemplate = document.getElementById('comment-template').innerHTML;
+  var commentTemplateFn = _.template(commentTemplate);
+  var comments = document.getElementById('comments');
+  var commentHTML = commentTemplateFn({ 'comment': comment, 'commenter': commenter });
+  comments += commentHTML;
 }
