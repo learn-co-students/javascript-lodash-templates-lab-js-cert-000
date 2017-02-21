@@ -5,6 +5,12 @@
   </head>
   <body>
     <main>
+      <form id="post-form" onsubmit="createPost();return false;">
+        Title: <input type="text" id="postTitle"><br>
+        Body: <input type="textarea" id="postBody"><br>
+        Author: <input type="text" id="postAuthor"><br>
+        <input type="submit">
+      </form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
@@ -51,12 +57,6 @@
           </p>
         </div>
     </script>
-    <form id="post-form" onsubmit="createPost()">
-      Title: <input type="text" id="postTitle"><br>
-      Body: <input type="textarea" id="postBody"><br>
-      Author: <input type="text" id="postAuthor"><br>
-      <input type="submit">
-    </form>
 
   </body>
 </html>

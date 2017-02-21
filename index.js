@@ -1,7 +1,9 @@
 function createPost() {
   var pageTemplate = document.getElementById("page-template").innerHTML;
-  var mainPage = document.getElementsByTagName('main');
-  mainPage.appendChild(pageTemplate); // mainPage += pageTemplate; (first way I tried it)
+  var mainPage = document.getElementById('post-anchor');
+  var pageTemplateFn = _.template(pageTemplate);
+  pageTemplateHTML = pageTemplateFn();
+  mainPage += pageTemplate;
   var postTitle = document.getElementById('postTitle').value;
   var author = document.getElementById('postAuthor').value;
   var postBody = document.getElementById('postBody').value;
@@ -9,7 +11,7 @@ function createPost() {
   var postTemplateFn = _.template(postTemplate);
   var postSection = document.getElementById('post');
   var postHTML = postTemplateFn({ 'title': postTitle, 'postBodyTemp': postBody, 'authorTemp': author })
-  postSection += postHTML;
+  postSection.innerHTML = postHTML;
 }
 
 function postComment() {
