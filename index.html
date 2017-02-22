@@ -4,7 +4,7 @@
     <title>JavaScript lodash Templates Lab</title>
   </head>
   <body>
-    <main>
+    <main id='post-anchor'>
       <form id="post-form" onsubmit="createPost();return false;">
         Title: <input type="text" id="postTitle"><br>
         Body: <input type="textarea" id="postBody"><br>
@@ -22,18 +22,18 @@
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
     <script id="page-template" type="text/x-lodash-template">
-      <div id="sidebar">hey there</div>
-      <div id="post">hello everyone</div>
+      <div id="sidebar"></div>
+      <div id="post"></div>
     </script>
     <script id="post-template" type="text/x-lodash-template">
       <article>
-          <div class="header"> //for the post title
+          <div class="header">
             <h2> <%= title %> </h2>
           </div>
           <div class="post-body">
             <p><%= postBodyTemp %></p>
           </div>
-          <div class="footer">//for the post author
+          <div class="footer">
             <p>
               <span class="posted-by">Post By: </span> <%= authorTemp %>
             </p>
@@ -50,8 +50,8 @@
       </form>
     </script>
     <script id="comment-template" type="text/x-lodash-template">
-        <div class="comment-body"><%= comment %></div> //for the comment text
-        <div class="footer"> //for the commenter name
+        <div class="comment-body"><%= comment %></div>
+        <div class="footer">
           <p>
             <span class="posted-by">Posted By: </span> <%= commenter %>
           </p>
