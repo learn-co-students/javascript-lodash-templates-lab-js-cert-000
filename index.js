@@ -10,16 +10,17 @@ function createPost() {
   var postBody = document.getElementById('postBody').value;
 
   //append page template to main tag
-  document.getElementsByTagName('main')[0].innerHTML += pageTemplate;
+  document.getElementsByTagName('main')[0].innerHTML += pageTemplate();
+  debugger;
 
   //insert values from form into Lodash template + get post id to append to + create comments section
-  var postHTML = postTemplate( 'title': postTitle, 'postBodyTemp': postBody, 'authorTemp': author );
+  var postHTML = postTemplate({ 'title': postTitle, 'postBodyTemp': postBody, 'authorTemp': author });
   var postSection = document.getElementById('post');
   var commentHTML = commentsTemplate();
 
   //append post section to correct spot in DOM and do the same with the empty comments section
   postSection.innerHTML = postHTML;
-  document.getElementsByClassName('posted-by').innerHTML += commentHTML;  
+  document.getElementsByTagName('footer')[0].innerHTML += commentHTML;  
 }
 
 function postComment() {
