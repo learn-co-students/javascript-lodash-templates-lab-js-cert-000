@@ -31,7 +31,7 @@ function postComment(i) {
   //<div class="comment"><p>comment</p><p>Posted By: <span class="commenter">commenter</span></p></div>
  
   //create template string
-   var commentTemplate = document.getElementById("comment-template").innerHTML;
+   var commentTemplate = document.getElementById("comments-template").innerHTML;
   //create template function
   var templateFn = _.template(commentTemplate);
  
@@ -43,4 +43,5 @@ function postComment(i) {
   //append rather than replace!
   commentsDiv.innerHTML += templateHTML;
 }
+
 
