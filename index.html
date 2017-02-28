@@ -5,9 +5,63 @@
   </head>
   <body>
     <main>
+      <div class="flex items-start" id="page-template">
+		<div style="width: 600px" id="post"></div>
+		<div id="sidebar"></div>
+	</div>
+		<form onsubmit="postPost();return false;">
+		Header: <input type="text" id="HeaderText"><br>
+		Post:  <input type="textarea" id="PostText"><br>
+		Author: <input type="text" id="AuthorName"><br>
+		<input type="submit">
+		</form>
     </main>
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+    <script id="post-template" type="text/x-lodash-template">
+	<div class="flex items-start"  >
+	<article class="mr2">
+	<header><h2><%- header %></h2></header>
+	<p >
+	<%- post %>
+	</p>
+	<footer>
+	<p>
+           <span class="posted-by">Posted By: </span>
+			<% if(author !== '') { %>
+			<%= author %>
+			<% } else { %>
+			Anonymous
+			<% } %>
+     </p>
+	</footer>
+    </article>
+	<div class="mt2"  >
+	<p > </p>
+	<form id='${i=i+1}' onsubmit="postComment(${i});return false;">
+		Comment:  <input type="textarea" id="commentText${i}"><br>
+		Commenter: <input type="text" id="commenterName${i}"><br>
+		<input type="submit">
+	</form>
+	</div>
+	</div>
+	</script>
+	
+	<script id="comment-template" type="text/x-lodash-template">
+    <div class="comment" >
+      <div class="comment-body"><%- comment %></div>
+      <div class="commenter">
+        <p>
+           <span class="posted-by">Posted By: </span>
+			<% if(commenter !== '') { %>
+			<%= commenter %>
+			<% } else { %>
+			Anonymous
+			<% } %>
+        </p>
+      </div>
+    </div>
+  </script>
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
@@ -17,3 +71,4 @@
     <script src="test/index-test.js"></script>
   </body>
 </html>
+
