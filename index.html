@@ -20,7 +20,8 @@
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
 
-  <script id="post-form" type="text/x-lodash-template">
+
+  <script id="post-template" type="text/x-lodash-template">
 	<div class="flex items-start"  >
 	<article class="mr2">
 	<header><h2><%- header %></h2></header>
@@ -28,7 +29,7 @@
 	<%- post %>
 	</p>
 	<footer>
-	<p>
+	     <p>
            <span class="posted-by">Posted By: </span>
 			<% if(author !== '') { %>
 			<%= author %>
@@ -49,6 +50,7 @@
 	</div>
 	</script>
 
+
 	<script id="comment-template" type="text/x-lodash-template">
     <div class="comment" >
       <div class="comment-body"><%- comment %></div>
@@ -66,6 +68,8 @@
       </div>
     </div>
   </script>
+
+
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
