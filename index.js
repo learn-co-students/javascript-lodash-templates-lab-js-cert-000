@@ -12,7 +12,7 @@ function createPost() {
   //erzeugt die Funktion zu dem Template
   var templateFn = _.template(postTemplate);
 	//erzeugt eine Variable zum DOM-Element mit der id="post"
-  var postsDiv = document.getElementById("post");
+  var postsDiv = document.getElementById("post-form");
 
   //execute template function with JSON object for the interpolated values
   var templateHTML = templateFn({ 'header': header, 'post': post, 'author': author });
