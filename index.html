@@ -9,7 +9,7 @@
 		<div style="width: 600px" id="post"></div>
 		<div id="sidebar"></div>
 	</div>
-		<form onsubmit="postPost();return false;">
+		<form onsubmit="createPost();return false;">
 		Header: <input type="text" id="HeaderText"><br>
 		Post:  <input type="textarea" id="PostText"><br>
 		Author: <input type="text" id="AuthorName"><br>
@@ -46,7 +46,7 @@
 	</div>
 	</div>
 	</script>
-	
+
 	<script id="comment-template" type="text/x-lodash-template">
     <div class="comment" >
       <div class="comment-body"><%- comment %></div>
@@ -71,4 +71,3 @@
     <script src="test/index-test.js"></script>
   </body>
 </html>
-
