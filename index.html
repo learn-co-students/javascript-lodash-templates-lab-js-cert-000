@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>JavaScript lodash Templates Lab</title>
+    <link href="https://npmcdn.com/basscss@8.0.1/css/basscss.min.css" rel="stylesheet">
   </head>
   <body>
     <main>
@@ -51,6 +52,7 @@
     <div class="comment" >
       <div class="comment-body"><%- comment %></div>
       <div class="commenter">
+      <footer>
         <p>
            <span class="posted-by">Posted By: </span>
 			<% if(commenter !== '') { %>
@@ -59,6 +61,7 @@
 			Anonymous
 			<% } %>
         </p>
+      </footer>
       </div>
     </div>
   </script>
@@ -70,4 +73,5 @@
     <script>mocha.setup('bdd');</script>
     <script src="test/index-test.js"></script>
   </body>
-</html>
+  </html>
+  
