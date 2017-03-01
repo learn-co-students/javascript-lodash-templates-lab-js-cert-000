@@ -8,7 +8,7 @@ function createPost() {
   //nimmt alle Inhalte der Input-Boxen
 
   //erzeugt einen Template-String
-   var postTemplate = document.getElementById("post-template").innerHTML;
+   var postTemplate = document.getElementById("post-form").innerHTML;
   //erzeugt die Funktion zu dem Template
   var templateFn = _.template(postTemplate);
 	//erzeugt eine Variable zum DOM-Element mit der id="post"
