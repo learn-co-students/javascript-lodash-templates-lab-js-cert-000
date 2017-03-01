@@ -52,12 +52,12 @@
 
 
 	<script id="comments-template" type="text/x-lodash-template">
-    <div class="comment" >
-      <div class="comment-body"><%- comment %></div>
-      <div class="commenter">
+    <div id = "comments"  >
+      <div><%- comment %></div>
+      <div>
       <footer>
         <p>
-           <span class="posted-by">Posted By: </span>
+           <span >Posted By: </span>
 			<% if(commenter !== '') { %>
 			<%= commenter %>
 			<% } else { %>
