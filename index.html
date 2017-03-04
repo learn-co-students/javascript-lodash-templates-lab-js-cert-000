@@ -6,14 +6,10 @@
   </head>
   <body>
     <main>
-      <div class="flex items-start" id="page-template">
-		      <div style="width: 600px" id="post-form"></div>
-		      <div id="sidebar"></div>
-	   </div>
-		<form onsubmit="createPost();return false;">
-		Header: <input type="text" id="HeaderText"><br>
-		Post:  <input type="textarea" id="PostText"><br>
-		Author: <input type="text" id="AuthorName"><br>
+		<form id="post-form" onsubmit="createPost();return false;">
+		Header: <input type="text" id="postTitle"><br>
+		Post:  <input type="textarea" id="postBody"><br>
+		Author: <input type="text" id="postAuthor"><br>
 		<input type="submit">
 		</form>
     </main>
@@ -21,51 +17,72 @@
     <script src="index.js"></script>
 
 
-  <script id="post-template" type="text/x-lodash-template">
-	<div class="flex items-start"  >
-	<article class="mr2">
-	<header><h2><%- header %></h2></header>
-	<p >
-	<%- post %>
-	</p>
-	<footer>
-	     <p>
-           <span class="posted-by">Posted By: </span>
-			<% if(author !== '') { %>
-			<%= author %>
-			<% } else { %>
-			Anonymous
-			<% } %>
-     </p>
-	</footer>
-    </article>
-	<div class="mt2"  >
-	<p > </p>
-	<form id='${i=i+1}' onsubmit="postComment(${i});return false;">
-		Comment:  <input type="textarea" id="commentText${i}"><br>
-		Commenter: <input type="text" id="commenterName${i}"><br>
-		<input type="submit">
-	</form>
-	</div>
-	</div>
-	</script>
+    <!-- page template -->
+     <script id="page-template" type="text/x-lodash-template">
+   <div class="flex items-start"  >
+      <div id="sidebar" class="mr2"></div>
+       <div id="post"></div>
+   </div>
+     </script>
+     <!-- end page template -->
 
 
-	<script id="comments-template" type="text/x-lodash-template">
-    <div id = "comments"><%- comment %></div>
-      <div>
-      <footer>
-        <p>
-           <span >Posted By: </span>
-			<% if(commenter !== '') { %>
-			<%= commenter %>
-			<% } else { %>
-			Anonymous
-			<% } %>
+     <!-- post template -->
+     <script id="post-template" type="text/x-lodash-template">
+   	<article class="mr2">
+   	<header><h2><%- header %></h2></header>
+   	<p >
+   	<%- post %>
+   	</p>
+   	<footer>
+   	     <p>
+              <span class="posted-by">Posted By: </span>
+   			<% if(author !== '') { %>
+   			<%= author %>
+   			<% } else { %>
+   			Anonymous
+   			<% } %>
         </p>
-      </footer>
-    </div>
-  </script>
+   	</footer>
+       </article>
+   	</script>
+   	<!-- end post template -->
+
+
+
+
+   	<!-- comments template -->
+   	<script id="comments-template" type="text/x-lodash-template">
+   	<div class="mt2"  >
+   	<p > </p>
+   	<form  onsubmit="postComment();return false;">
+   		Comment:  <input type="textarea" id="commentText"><br>
+   		Commenter: <input type="text" id="commenterName"><br>
+   		<input type="submit">
+   	</form>
+   	</div>
+   	</script>
+   	<!-- end comments template -->
+
+
+
+   	<!-- comment template -->
+   	<script id="comment-template" type="text/x-lodash-template">
+       <div id = "comments"><%- comment %></div>
+         <div>
+         <footer>
+           <p>
+              <span >Posted By: </span>
+   			<% if(commenter !== '') { %>
+   			<%= commenter %>
+   			<% } else { %>
+   			Anonymous
+   			<% } %>
+           </p>
+         </footer>
+       </div>
+     </script>
+   	<!-- end comments template -->
 
 
     <!-- Open this file and call `mocha.run()` in console to run tests -->
