@@ -53,7 +53,7 @@
 
    	<!-- comments template -->
    	<script id="comments-template" type="text/x-lodash-template">
-   	<div class="mt2"  >
+   	<div  id="comments" class="mt2"  >
    	<p > </p>
    	<form  onsubmit="postComment();return false;">
    		Comment:  <input type="textarea" id="commentText"><br>
@@ -68,7 +68,7 @@
 
    	<!-- comment template -->
    	<script id="comment-template" type="text/x-lodash-template">
-       <div id = "comments"><%- comment %></div>
+       <div><%- comment %></div>
          <div>
          <footer>
            <p>
