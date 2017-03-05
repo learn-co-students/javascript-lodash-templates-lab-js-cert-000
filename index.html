@@ -53,14 +53,15 @@
 
    	<!-- comments template -->
    	<script id="comments-template" type="text/x-lodash-template">
-   	<div id="comments" class="mt2"  >
-   	<p > </p>
-   	<form  onsubmit="postComment();return false;">
+	   <div id ="form" class="my2">
+    <div id="comments" class="my2"  >
+     	<form  onsubmit="postComment();return false;">
    		Comment:  <input type="textarea" id="commentText"><br>
    		Commenter: <input type="text" id="commenterName"><br>
    		<input type="submit">
    	</form>
    	</div>
+    </div>
    	</script>
    	<!-- end comments template -->
 
@@ -68,7 +69,7 @@
 
    	<!-- comment template -->
    	<script id="comment-template" type="text/x-lodash-template">
-       <div><%- comment %></div>
+       <div class="my2"><%- comment %></div>
          <div>
          <footer>
            <p>
