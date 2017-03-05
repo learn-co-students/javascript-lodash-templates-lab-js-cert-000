@@ -8,7 +8,7 @@ function createPost() {
    var templateHTML = document.getElementById("page-template").innerHTML;
 
 
-   var pageDiv =  document.getElementsByTagName("main")[0]
+   var pageDiv =  document.querySelector('main')
 
 	 // fügt das HTML-Template zu dem DOM-Element
 	pageDiv.innerHTML += templateHTML;
