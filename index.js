@@ -4,7 +4,7 @@ function createPost() {
   var post = document.getElementById("postBody").value;
   var author = document.getElementById("postAuthor").value;
 
-   //erzeugt aus dem lodash Template das HTML-Template
+   //erzeugt  das HTML-Template
    var templateHTML = document.getElementById("page-template").innerHTML;
 
 

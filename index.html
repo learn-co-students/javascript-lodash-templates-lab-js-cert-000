@@ -19,10 +19,8 @@
 
     <!-- page template -->
      <script id="page-template" type="text/x-lodash-template">
-
-      <div id="sidebar" class="mr2"></div>
+      <div id="sidebar"></div>
        <div id="post"></div>
-
      </script>
      <!-- end page template -->
 
@@ -55,7 +53,7 @@
    	<script id="comments-template" type="text/x-lodash-template">
 	   <div id ="form" class="my2">
     <div id="comments" class="my2"  >
-     	<form  onsubmit="postComment();return false;">
+     	<form onsubmit="postComment();return false;">
    		Comment:  <input type="textarea" id="commentText"><br>
    		Commenter: <input type="text" id="commenterName"><br>
    		<input type="submit">
