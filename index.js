@@ -3,6 +3,7 @@ function createPost() {
 	var pageTemplate = document.getElementById("page-template").innerHTML;
 
 	//erzeugt einen Post-Template-String und daraus dann gleich die Funktion zu dem Template
+ 	var postTemplate = document.getElementById("post-template");
 	var postTemplate = _.template(document.getElementById("post-template").innerHTML);
 
 	//erzeugt einen Comments-Template-String und daraus dann gleich die Funktion zu dem Template
