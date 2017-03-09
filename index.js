@@ -37,7 +37,7 @@ function createPost() {
 
 
     //fügt das Post-Template zum DOM DIV post
-	postsDiv.innerHTML += postTemplate;
+	postsDiv.innerHTML = postTemplate;
 
 
   	//erzeugt eine Variable zum DOM-Element mit der id="sidebar"
