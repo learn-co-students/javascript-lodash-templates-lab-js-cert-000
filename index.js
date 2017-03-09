@@ -1,13 +1,13 @@
 function createPost() {
 	//erzeugt  das Page-Template
-	var pageTemplate = document.getElementById("page-template").innerHTML;
+	var pageTemplate = _.template(document.getElementById("page-template").innerHTML);
 
 	//erzeugt einen Post-Template-String und daraus dann gleich die Funktion zu dem Template
 
 	var postTemplate = _.template(document.getElementById("post-template").innerHTML);
 
 	//erzeugt einen Comments-Template-String und daraus dann gleich die Funktion zu dem Template
-	var commentsTemplate = document.getElementById("comments-template").innerHTML;
+	var commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
 
 
 
@@ -18,17 +18,17 @@ function createPost() {
 	var author = document.getElementById("postAuthor").value;
 
 	//Erzeugt das Template mit dem Inhalt aus den Input-Feldern
-	var postTemplate = postTemplate({ 'header': header, 'post': post, 'author': author });
+	var postContent = postTemplate({ 'header': header, 'post': post, 'author': author });
 
+var pageContent = pageTemplate()
 
-
-
+var commentsContent=commentsTemplate()
 
 	//erzeugt eine Variable zum DOM-Element main
     var pageDiv =  document.querySelector('main')
 
 	 // fügt das HTML-Template zu dem DOM-Element
-	pageDiv.innerHTML = pageTemplate;
+	pageDiv.innerHTML =  pageContent;
 
 
 
@@ -37,7 +37,7 @@ function createPost() {
 
 
     //fügt das Post-Template zum DOM DIV post
-	postsDiv.innerHTML = postTemplate;
+	postsDiv.innerHTML =postContent;
 
 
   	//erzeugt eine Variable zum DOM-Element mit der id="sidebar"
@@ -45,7 +45,7 @@ function createPost() {
 
 
   // fügt das Comments-Template zu dem DOM-Element sidebar
-	commentsDiv.innerHTML += commentsTemplate;
+	commentsDiv.innerHTML += commentsContent;
 
 
 
@@ -63,22 +63,22 @@ function createPost() {
 
 
 function postComment() {
- //create template string
+ //erzeugt die Kommentar-Template-Funktion
    var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
-  //create template function
 
+//nimmt die Werte aus den Eingabe-Feldern
   var commenter = document.getElementById("commenterName").value;
   var comment = document.getElementById("commentText").value;
-  //insert comment into "comments" div in this format:
+
   //<div class="comment"><p>comment</p><p>Posted By: <span class="commenter">commenter</span></p></div>
 
 
-
+//Eine Variable zum DOM-Element mit der ID= comments
   var commentsDiv = document.getElementById("comments");
 
-  //execute template function with JSON object for the interpolated values
+  //Führt die lodash-Funktion mit den Eingabe-Werten aus und erzeugt das gefüllte Template
   var commentTemplate = commentTemplate({ 'comment': comment, 'commenter': commenter });
 
-  //append rather than replace!
+  //fügt das vollständige neue
   commentsDiv.innerHTML += commentTemplate;
 }
