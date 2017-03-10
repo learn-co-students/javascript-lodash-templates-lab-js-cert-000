@@ -38,7 +38,7 @@ var commentsContent=commentsTemplate()
 
 
     //fügt das Post-Template zum DOM DIV post
-	postsDiv.innerHTML =postContent;
+	postsDiv.innerHTML = postContent;
 
 
   	//erzeugt eine Variable zum DOM-Element mit der id="sidebar"
@@ -79,8 +79,8 @@ debugger;
   var commentsDiv = document.getElementById("comments");
 
   //Führt die lodash-Funktion mit den Eingabe-Werten aus und erzeugt das gefüllte Template
-  var commentTemplate = commentTemplate({ 'comment': comment, 'commenter': commenter });
+  var commentContent = commentTemplate({ 'comment': comment, 'commenter': commenter });
 
   //fügt das vollständige neue
-  commentsDiv.innerHTML += commentTemplate;
+  commentsDiv.innerHTML += commentContent;
 }
