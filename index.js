@@ -9,7 +9,7 @@ function createPost() {
 	//erzeugt einen Comments-Template-String und daraus dann gleich die Funktion zu dem Template
 	var commentsTemplate = _.template(document.getElementById("comments-template").innerHTML);
 
-
+	debugger;
 
 
 	 //nimmt alle Inhalte der Input-Boxen - das muss zuerst geschehen, sonst werden die Inhalt wieder gelöscht wenn man die pageDivs hinzufügt
@@ -21,7 +21,7 @@ function createPost() {
 	//Erzeugt das Template mit dem Inhalt aus den Input-Feldern
 	var postContent = postTemplate({ 'header': header, 'post': post, 'author': author });
 
-var pageContent = pageTemplate()
+var pageContent += pageTemplate()
 
 var commentsContent=commentsTemplate()
 
@@ -64,6 +64,7 @@ var commentsContent=commentsTemplate()
 
 
 function postComment() {
+	debugger;
  //erzeugt die Kommentar-Template-Funktion
    var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
