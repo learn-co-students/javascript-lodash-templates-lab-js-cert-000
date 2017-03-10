@@ -21,7 +21,7 @@ function createPost() {
 	//Erzeugt das Template mit dem Inhalt aus den Input-Feldern
 	var postContent = postTemplate({ 'header': header, 'post': post, 'author': author });
 
-var pageContent += pageTemplate()
+var pageContent = pageTemplate()
 
 var commentsContent=commentsTemplate()
 
@@ -29,7 +29,7 @@ var commentsContent=commentsTemplate()
     var pageDiv =  document.querySelector('main')
 
 	 // fügt das HTML-Template zu dem DOM-Element
-	pageDiv.innerHTML =  pageContent;
+	pageDiv.innerHTML +=  pageContent;
 
 
 
