@@ -2,18 +2,100 @@
 <html>
   <head>
     <title>JavaScript lodash Templates Lab</title>
+    <link href="https://npmcdn.com/basscss@8.0.1/css/basscss.min.css" rel="stylesheet">
   </head>
   <body>
     <main>
+		<form id="post-form" onsubmit="createPost()">
+		Header: <input type="text" id="postTitle"><br>
+		Post:  <input type="textarea" id="postBody"><br>
+		Author: <input type="text" id="postAuthor"><br>
+		<input type="submit">
+		</form>
     </main>
+      <!--   <script src='https://cdn.jsdelivr.net/g/lodash@4(lodash.min.js+lodash.fp.min.js)'></script>-->
     <script src="node_modules/lodash/lodash.min.js"></script>
     <script src="index.js"></script>
+
+
+    <!-- page template -->
+     <script id="page-template" type="text/x-lodash-template">
+      <div id="sidebar"></div>
+       <div id="post"></div>
+     </script>
+     <!-- end page template -->
+
+
+     <!-- post template -->
+     <script id="post-template" type="text/x-lodash-template">
+   	<article class="mr2">
+   	<header><h2><%- header %></h2></header>
+   	<p >
+   	<%- post %>
+   	</p>
+   	<footer>
+   	     <p>
+              <span class="posted-by">Posted By: </span>
+   			<% if(author !== '') { %>
+   			<%= author %>
+   			<% } else { %>
+   			Anonymous
+   			<% } %>
+        </p>
+   	</footer>
+       </article>
+   	</script>
+   	<!-- end post template -->
+
+
+
+
+   	<!-- comments template -->
+   	<script id="comments-template" type="text/x-lodash-template">
+	   <div id ="form" class="my2">
+    <div id="comments" class="my2"  >
+     	<form onsubmit="postComment()">
+   		Comment:  <input type="textarea" id="commentText"><br>
+   		Commenter: <input type="text" id="commenterName"><br>
+   		<input type="submit">
+   	</form>
+   	</div>
+    </div>
+   	</script>
+   	<!-- end comments template -->
+
+
+
+   	<!-- comment template -->
+   	<script id="comment-template" type="text/x-lodash-template">
+       <div class="my2"><%- comment %></div>
+         <div>
+         <footer>
+           <p>
+              <span >Posted By: </span>
+   			<% if(commenter !== '') { %>
+   			<%= commenter %>
+   			<% } else { %>
+   			Anonymous
+   			<% } %>
+           </p>
+         </footer>
+       </div>
+     </script>
+   	<!-- end comments template -->
+
+
     <!-- Open this file and call `mocha.run()` in console to run tests -->
     <div id="mocha"></div>
     <script src="node_modules/mocha/mocha.js"></script>
     <script src="node_modules/expect/umd/expect.min.js"></script>
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script>mocha.setup('bdd');</script>
-    <script src="test/index-test.js"></script>
-  </body>
-</html>
+  <!--  <script src="node_modules/jquery/dist/jquery.min.js"></script>-->
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+    crossorigin="anonymous"></script>
+
+      <script>mocha.setup('bdd');</script>
+      <script src="test/index-test.js"></script>
+    </body>
+    </html>
