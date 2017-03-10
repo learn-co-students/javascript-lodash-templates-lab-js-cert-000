@@ -68,7 +68,7 @@ function postComment() {
    var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
 //nimmt die Werte aus den Eingabe-Feldern
-debugger;
+
   var commenter = document.getElementById("commenterName").value;
   var comment = document.getElementById("commentText").value;
 
