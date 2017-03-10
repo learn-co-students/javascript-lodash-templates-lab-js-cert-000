@@ -13,6 +13,7 @@ function createPost() {
 
 
 	 //nimmt alle Inhalte der Input-Boxen - das muss zuerst geschehen, sonst werden die Inhalt wieder gelöscht wenn man die pageDivs hinzufügt
+
 	var header = document.getElementById("postTitle").value;
 	var post = document.getElementById("postBody").value;
 	var author = document.getElementById("postAuthor").value;
@@ -67,6 +68,7 @@ function postComment() {
    var commentTemplate = _.template(document.getElementById("comment-template").innerHTML);
 
 //nimmt die Werte aus den Eingabe-Feldern
+debugger;
   var commenter = document.getElementById("commenterName").value;
   var comment = document.getElementById("commentText").value;
 
